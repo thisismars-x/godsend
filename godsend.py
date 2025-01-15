@@ -795,5 +795,3 @@ def run(app, host=__host__, port=__port__):
     try: __wsgi__server.serve_forever()
     except: __wsgi__server.close()
 
-app = godsent(cached_urlconf)
-run(app)
