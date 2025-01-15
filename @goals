@@ -1,0 +1,56 @@
+
+when you write backend
+do you sometimes remember,
+backend:
+
+request  -|--> | 
+          |    | server/ backend
+response <|--- |
+          |
+	  V
+      middleware
+
+take a request. process a request. give out a response.
+and that is it. that is the entirety of backend.
+godsend emphasizes on this.
+
+active web developers should be aware of the
+crux of developing websites. people who do not know
+where latin1 encoding is default, or what HTTP_TRANSFER_ENCODING
+is, should not make websites.
+When you have django and flask and people who pride themselves
+on learning things that are unnecessarily complicated
+people become dumb. As a thumb of rule, all web developers
+are 'dumb'.
+
+This is where godsend shines.
+Embrace elegant designs. Check for things yourself.
+Unless unacceptedly troublesome, write things out for
+yourself.
+
+godsend comes with a temple_t(template) engine of its own,
+which allows to embed python within temple_t's.
+Why have multiple Turing-complete grammars on your stack(Jinja2, DTL)
+when Python is turing complete and can do everything
+for its own. Routes are also simple by design.
+Read godsleather for some amount of detail.
+
+The intent of godsend is to be readable by a mere mortal
+therefore the source code is thoroughly documented
+and very simplistic. If you love things that are unnecessarily
+complicated to boast of it, godsend is not for you.
+
+godsend v0.1!
+After v0.1, v1.0 will be out.
+v0.1 intends to do the following:
+     . outline all necessary components for a robust backend
+     . remain simplistic enough for any willing person to read through
+     . single file
+
+the next version, will have much stronger exception handling,
+inbuilt support for gunicorn(although it is straightforward as of now)
+and better documentation.
+
+Finally,
+“Taking a new step, uttering a new word, is what people fear most.”
+	. Fyodor Dostoevsky, Crime and Punishment 

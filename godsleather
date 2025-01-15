@@ -1,0 +1,86 @@
+|||||||||||||||||||||||||||||
+	   GODSEND
+|||||||||||||||||||||||||||||
+
+help:
+
+routes
+All Router does is take in a urltemplate(static/ dynamic does
+not matter). It compiles it down to a regular expression.
+If the regular expression is valid, your urltemplate is valid.
+
+Prefix / are ignored in urls. Postfix / are not.
+For dynamic routes, build urltemplates as:
+    temple_t = Router('/product/<str:pgname>/<int:id>/<[[0-4]{4}]:rdig')
+    :valid_types = list[str, int, path] and any valid regex enclosed in []
+
+class: Router
+params: urltemplate, incomingurl
+output: . dict if urltemplate is dynamic
+        . bool if urltemplate is static
+notes: initialize Router with urltemplate
+notes: call Router with incomingurl to get output
+
+templates
+To ditch a template engine, we need to embed python directly
+into our template.
+Python is turing-complete, what you need in a template
+engine you can do in python.
+No more Jinja2, DTL, etc.
+templates that make your life simpler are 'temples'.
+
+:invoke fn temples directly instead of calling :class temple
+:fn temples is a glorified frontend for generating templates
+:class templerser is the backend for tokenising python
+
+class: templerser, temple
+fn: temples
+input: src
+output: string
+
+'src can be a string, or file.
+:list[lookup_at] tells you where to search for files('' and '/temples')
+:list[supported_extension] tells you what extensions are supported( 'godsworld', 'godsword', 'godsleather' and 'html')
+notes: prefer temples > temple. Both are convenient though.
+
+request, response
+requests are strict-arguments for view functions(can not be ommitted)
+lRequest wraps the wsgi-environ
+every view must return a lResponse
+
+:class lRequest
+:class lResponse
+notes: the l- stands for 'local' unlike Flask requests are not thread-local
+
+views
+views have some information for restructuring
+each view is associated with a path and method,
+optionally taking in an alias
+notes: if you give a view an alias you can view.reverse(alias)
+to find that url.
+notes: views have an associated cache to store Routes and their
+associated view-fns
+
+:class view
+view(function, path, method, alias)
+or view.register(function, path, method, alias)
+
+notes: I like django-style urlconfs instead of decorators
+notes: Maintain your fn at one place and register them as views in one place
+
+godsent
+This is your wsgi compliant application
+Pass it your urlconf, that stores routes
+Call it from your server, with 
+:args environ(lRequest) and start_response
+
+:class godsent
+:init urlconf
+:call environ, start_response
+
+notes: for further reading on wsgi compliant applications
+notes: look for PEP-333(3)
+
+|||||||||||||||||||||||||||||
+	   GODSEND
+|||||||||||||||||||||||||||||
