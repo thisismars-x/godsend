@@ -1,1 +1,17 @@
 A complete backend engine with its own routing primitives and template engine, for people who love God.
+
+Read @goals.
+
+godsends intentions:
+        . single file backend engine 
+        . template engine from scratch(temple) with support for embedding python 
+        directly into your template
+        . elegant routing primitives
+        . PEP333(3) WSGI compliant(same app for all servers)
+
+godsend is not for 'web developers'.
+godsend demands you to be explicit in your knowledge. 
+Unless absolutely redundant, godsend does not write anything for you.
+Is your encoding valid? Check for yourself, do not displease God, by
+asking redundant questions, a web developer should know about it.
+
